@@ -1,0 +1,231 @@
+<?php
+$servername = "4w0vau.myd.infomaniak.com";
+$username = "4w0vau_dreamize";
+$password = "Pidou2016";
+$dbname = "4w0vau_dreamize";
+
+// Créer la connexion
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Récupérer les données du formulaire
+$model = $_POST['model'];
+$name = $_POST['name'];
+$country = $_POST['country'];
+$city = $_POST['city'];
+$email = $_POST['email'];
+
+// Préparer la requête SQL
+$sql = "INSERT INTO orders (model, name, country, city, email) VALUES ('$model', '$name', '$country', '$city', '$email')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Nouvelle commande enregistrée avec succès";
+} else {
+    echo "Erreur: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fables">
+    <meta name="author" content="Enterprise Development">
+    <link rel="shortcut icon" href="assets/custom/images/shortcut.png">
+
+    <title>Immonivo</title>
+    
+    <!-- animate.css-->  
+    <link href="assets/vendor/animate.css-master/animate.min.css" rel="stylesheet">
+    <!-- Load Screen -->
+    <link href="assets/vendor/loadscreen/css/spinkit.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <link href="assets/vendor/fontawesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- Fables Icons -->
+    <link href="assets/custom/css/fables-icons.css" rel="stylesheet"> 
+    <!-- Bootstrap CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+    <!-- FANCY BOX -->
+    <link href="assets/vendor/fancybox-master/jquery.fancybox.min.css" rel="stylesheet">
+    <!-- OWL CAROUSEL  -->
+    <link href="assets/vendor/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/vendor/owlcarousel/owl.theme.default.min.css" rel="stylesheet">
+    <!-- Timeline -->
+    <link rel="stylesheet" href="assets/vendor/timeline/timeline.css"> 
+    <!-- FABLES CUSTOM CSS FILE -->
+    <link href="assets/custom/css/custom.css" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS RESPONSIVE FILE -->
+    <link href="assets/custom/css/custom-responsive.css" rel="stylesheet"> 
+     
+</head>
+
+
+<body>
+
+    
+<!-- Loading Screen -->
+    <div id="ju-loading-screen">
+      <div class="sk-double-bounce">
+        <div class="sk-child sk-double-bounce1"></div>
+        <div class="sk-child sk-double-bounce2"></div>
+      </div>
+    </div>
+
+     
+<!-- Start Header -->
+<div class="fables-header fables-after-overlay">
+    <div class="container"> 
+         <h2 class="fables-page-title fables-second-border-color">Les différents modèles des sites Immonivo</h2>
+    </div>
+</div>  
+<!-- /End Header -->
+     
+<!-- Start Breadcrumbs -->
+<div class="fables-light-background-color">
+    <div class="container"> 
+        <nav aria-label="breadcrumb">
+          <ol class="fables-breadcrumb breadcrumb px-0 py-3">
+            <li class="breadcrumb-item active" aria-current="page">Nos modèles</li>
+          </ol>
+        </nav> 
+    </div>
+</div>
+<!-- /End Breadcrumbs -->
+     
+<!-- Start page content -->   
+
+    
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12 col-sm-6 mb-5">
+                <div class="image-container zoomIn-effect">
+                    <a href="home1.html"><img src="assets/custom/demo/demo1.png" alt="" class="img-fluid"></a>
+                </div>
+                <h2 class="my-3"><a href="index1.html" class="fables-main-text-color fables-second-hover-color font-26 semi-font">Modèle 1</a></h2>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal" data-model="Modèle 1">Commander</button>
+            </div>
+            <div class="col-12 col-sm-6 mb-5">
+                <div class="image-container zoomIn-effect">
+                    <a href="home2.html"><img src="assets/custom/demo/demo2.png" alt="" class="img-fluid"></a>
+                </div>
+                <h2 class="my-3"><a href="index2.html" class="fables-main-text-color fables-second-hover-color font-26 semi-font">Modèle 2</a></h2>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal" data-model="Modèle 2">Commander</button>
+            </div>
+            <div class="col-12 col-sm-6 mb-5">
+                <div class="image-container zoomIn-effect">
+                    <a href="home3.html"><img src="assets/custom/demo/demo3.png" alt="" class="img-fluid"></a>
+                </div>
+                <h2 class="my-3"><a href="index3.html" class="fables-main-text-color fables-second-hover-color font-26 semi-font">Modèle 3</a></h2>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal" data-model="Modèle 3">Commander</button>
+            </div>
+            <div class="col-12 col-sm-6 mb-5">
+                <div class="image-container zoomIn-effect">
+                    <a href="home4.html"><img src="assets/custom/demo/demo4.png" alt="" class="img-fluid"></a>
+                </div>
+                <h2 class="my-3"><a href="index4.html" class="fables-main-text-color fables-second-hover-color font-26 semi-font">Modèle 4</a></h2>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal" data-model="Modèle 4">Commander</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Commander <span id="model-name"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="orderForm" method="POST" action="">
+                        <input type="hidden" id="model" name="model">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Pays</label>
+                            <input type="text" class="form-control" id="country" name="country" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Ville</label>
+                            <input type="text" class="form-control" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Soumettre</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+        $('#orderModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var model = button.data('model');
+            var modal = $(this);
+            modal.find('#model-name').text(model);
+            modal.find('#model').val(model);
+        });
+    </script>
+    <script>
+
+        $('#orderForm').on('submit', function (e) {
+            e.preventDefault();
+            // Vous pouvez ajouter ici le code pour soumettre le formulaire via AJAX
+            alert('Commande soumise pour ' + $('#model-name').text());
+            $('#orderModal').modal('hide');
+        });
+    </script>
+<!-- /End page content -->
+    
+    
+
+<div class="copyright fables-main-background-color mt-0 border-0 white-color">
+        <ul class="nav fables-footer-social-links just-center fables-light-footer-links">
+            <li><a href="#" target="_blank"><i class="fab fa-google-plus-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-pinterest-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <p class="mb-0">Copyright © Immonivo 2018. Tous droits réservés</p> 
+
+</div>
+    
+<!-- /End Footer 2 Background Image -->
+
+
+
+<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="assets/vendor/loadscreen/js/ju-loading-screen.js"></script>
+<script src="assets/vendor/jquery-circle-progress/circle-progress.min.js"></script>
+<script src="assets/vendor/popper/popper.min.js"></script>
+<script src="assets/vendor/WOW-master/dist/wow.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/vendor/owlcarousel/owl.carousel.min.js"></script> 
+<script src="assets/custom/js/custom.js"></script>  
+    
+</body>
+</html>
